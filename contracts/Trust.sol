@@ -35,6 +35,10 @@ contract Trust {
     }
 
     receive() external payable {
+        deposit();
+    }
+
+    function deposit() public payable {
         require(
             unlockDate > block.timestamp,
             "Wallet is unlocked, can't deposit."
